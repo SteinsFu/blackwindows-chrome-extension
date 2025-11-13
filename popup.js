@@ -3,15 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById('closeBtn');
 
   openBtn.addEventListener('click', () => {
-    chrome.runtime.sendMessage({ action: 'openWindows' }, (response) => {
-      // Close the popup after action
+    chrome.runtime.sendMessage({ action: 'openWindows' }, () => {
       window.close();
     });
   });
 
   closeBtn.addEventListener('click', () => {
-    chrome.runtime.sendMessage({ action: 'closeWindows' }, (response) => {
-      // Close the popup after action
+    chrome.runtime.sendMessage({ action: 'closeWindows' }, () => {
       window.close();
     });
   });

@@ -1,27 +1,39 @@
-# Black Windows Chrome extension
+# Black Windows Chrome Extension
 
-This is a simple chrome extension that opens black fullscreen windows on other monitors.
+A Chrome extension that opens black fullscreen windows on all monitors except the current one.
 
-How to load locally (Chrome/Edge):
+## How to Install
 
-1. Open Chrome and go to chrome://extensions
-2. Enable "Developer mode" (top-right)
+1. Open Chrome and go to `chrome://extensions`
+2. Enable "Developer mode" (toggle in top-right corner)
 3. Click "Load unpacked" and select this folder:
    ```
    path/to/blackwindows-chrome-extension
    ```
+4. The extension icon will appear in your toolbar
 
-4. Click the extension icon — the extension will open three small black popup windows.
+## How to Use
 
-Files of interest:
+Click the extension icon to open a popup with two buttons:
+- **Open Black Windows**: Closes any existing black windows, then opens fullscreen black windows on all monitors except the one you're currently using
+- **Close Black Windows**: Closes all black windows
 
-- `manifest.json` — manifest v3 entry; uses a background service worker to handle clicks
-- `background.js` — service worker that opens three `black.html` windows
-- `black.html` / `black.css` — page that renders a full-black window
-- `popup.html` / `popup.css` / `popup.js` — previous popup UI (kept in the repo but no longer used)
+## Features
 
-Notes:
+- **Auto-detection**: Automatically detects all connected monitors and opens one black window per monitor (excluding the current one)
+- **Auto-close on startup**: Black windows are automatically closed when Chrome starts up, preventing them from being restored after PC restart
+- **Smart window management**: Opening black windows automatically closes any existing ones first
 
-- Permission `windows` is required to create new browser windows. If you want different sizes or types (e.g., `normal` instead of `popup`), I can change the settings in `background.js`.
-- I left the original popup files in place in case you want to revert or use them in another action.
+## Files
+
+- `manifest.json` — Manifest v3 configuration
+- `background.js` — Service worker that manages black windows across monitors
+- `black.html` — Simple page that displays a black fullscreen window
+- `popup.html` / `popup.css` / `popup.js` — Popup UI for controlling the extension
+- `icon.png` — Extension icon
+
+## Permissions
+
+- `windows` — Required to create and manage browser windows
+- `system.display` — Required to detect monitor configuration and positions
 

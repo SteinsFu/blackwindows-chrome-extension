@@ -1,6 +1,6 @@
 // background service worker: manage opening/closing black windows (one per monitor)
 
-// Get display info and calculate monitor positions
+// Get display information for all monitors
 function getDisplayInfo() {
   return new Promise((resolve) => {
     chrome.system.display.getInfo((displays) => {
