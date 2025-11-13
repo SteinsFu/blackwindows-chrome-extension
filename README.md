@@ -2,6 +2,8 @@
 
 A Chrome extension that opens black fullscreen windows on all monitors except the current one.
 
+This is useful when you want to make your other monitors black while keeping them logically connected, for example, when watching a movie on one monitor.
+
 ## How to Install
 
 1. Open Chrome and go to `chrome://extensions`
